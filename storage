@@ -3,5 +3,9 @@ up42.authenticate(cfg_file="../secret/config.json")
 storage = up42.initialize_storage()
 assets = storage.get_assets(limit=100, sortby="size", descending=False)
 
+# print list of all assets
+print(*assets, sep="/n")
+
+# print specific attributes of all assets
 for x in assets:
     print(x.info["name"],x.info["type"])
