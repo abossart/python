@@ -1,0 +1,7 @@
+import up42
+up42.authenticate(cfg_file="../secret/config.json")
+storage = up42.initialize_storage()
+assets = storage.get_assets(limit=100, sortby="size", descending=False)
+
+for x in assets:
+    print(x.info["name"],x.info["type"])
