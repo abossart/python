@@ -2,9 +2,8 @@ import up42
 import pandas as pd
 from IPython.display import display
 #Authentication & initialisation
-#up42.authenticate(cfg_file="../secret/config.json")
-up42.authenticate(project_id="d5d9dd71-d79b-4bf8-9ce3-93106dc2904e", project_api_key="Bm78KAM1.nDiG8kT5F6P3rI1xbDzq2lE9abWM9mhvTEw"
-)
+up42.authenticate(cfg_file="../secret/config.json")
+
 project = up42.initialize_project()
 
 #get workflows/jobs, storage and assets lists
