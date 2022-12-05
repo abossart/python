@@ -1,9 +1,9 @@
 import up42
 import pandas as pd
 from IPython.display import display
+
 #Authentication & initialisation
 up42.authenticate(cfg_file="../secret/config.json")
-
 project = up42.initialize_project()
 
 #get workflows/jobs, storage and assets lists
@@ -24,12 +24,12 @@ def displayTable(inputList, param1, param2, param3, param4, param5, message):
 displayTable(workflow, "displayId", "status", "updatedAt", "name", "createdAt", "Jobs run by user")
 displayTable(assets,"name", "source", "createdAt","size","orderId", "Available Assets in Storage")
 
-print(assets)
+#print(assets)
 
 #assets[0].download()
 #assets[0].results
 
-print(assets[3].info)
+#print(assets[3].info)
 #print(assets[0].info,sep="\n") #display available info about Assets object
 
 #workflow[5].download_quicklooks()
