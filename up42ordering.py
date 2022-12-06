@@ -1,5 +1,5 @@
-import pandas as pd
 import up42
+import pandas as pd
 from IPython.display import display
 
 #Authentication & initialisation
@@ -17,7 +17,11 @@ display(pd.DataFrame.from_dict(products).transpose())
 
 display(products)
 
-aoi_geometry = up42.get_example_aoi()
+# aoi definition
+aoi_example = up42.get_example_aoi()
+aoi_1nhalfsqm = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":[[[13.362461,52.524945],[13.381079,52.524945],[13.382023,52.514812],[13.361431,52.514394],[13.362461,52.524945]]]}}]}
+aoi_geometry = aoi_1nhalfsqm
+print(aoi_geometry)
 
 search_parameters = catalog.construct_search_parameters(collections=["spot"],
                                                         geometry=aoi_geometry,
@@ -39,13 +43,15 @@ order_parameters = catalog.construct_order_parameters(data_product_id=data_produ
                                                       aoi=aoi_geometry)
 display(order_parameters)
 
-catalog.estimate_order(order_parameters)
+estimate = catalog.estimate_order(order_parameters)
+
+print("Credit estimate for this purchase is: ",estimate," credits")
 
 acceptance = input("enter yes or no to order")
+
 if acceptance == "yes":
     order = catalog.place_order(order_parameters)
 else:
     print("not ordered")
 
 print("End of script")
-#print(disp[0])

@@ -2,6 +2,7 @@ import up42
 import pandas as pd
 from IPython.display import display
 
+
 #Authentication & initialisation
 up42.authenticate(cfg_file="../secret/config.json")
 project = up42.initialize_project()
