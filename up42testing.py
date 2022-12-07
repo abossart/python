@@ -19,6 +19,9 @@ def displayTable(inputList, param1, param2, param3, param4, param5, message):
     for x in inputList:
         list.append([x.info[param1],x.info[param2],x.info[param3],x.info[param4],x.info[param5]])
     df=pd.DataFrame(data=list, columns=[param1, param2, param3, param4, param5])
+    pd.set_option('display.max_rows', 500)
+    pd.set_option('display.max_columns', 500)
+    pd.set_option('display.width', 150)
     print(message)
     display(df)
 
