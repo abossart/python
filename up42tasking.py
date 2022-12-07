@@ -2,7 +2,6 @@ from pprint import pprint
 dimport up42
 import pandas as pd
 from IPython.display import display
-import json
 
 
 #Authentication & initialisation
