@@ -30,10 +30,10 @@ search_parameters = catalog.construct_search_parameters(collections=["spot"],
                                                         sortby="cloudCoverage",
                                                         limit=2)
 
-search_results = catalog.search(search_parameters,as_dataframe=0)
+search_results = catalog.search(search_parameters, as_dataframe=False)
 #print(search_results)
 #used to verify list is empty. Suboptimal to do 2 searches. Refactor
-search_results_df = catalog.search(search_parameters,as_dataframe=1)
+search_results_df = catalog.search(search_parameters, as_dataframe=True)
 #print(search_results_df)
 
 if not search_results_df.empty:
