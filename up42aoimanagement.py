@@ -37,7 +37,7 @@ search_results_df = catalog.search(search_parameters, as_dataframe=True)
 #print(search_results_df)
 
 if not search_results_df.empty:
-    display(pd.DataFrame(search_results_df[["id","collection","providerName","acquisitionDate","resolution"]]))
+    display(pd.DataFrame(search_results_df[["id", "collection", "providerName", "acquisitionDate", "resolution"]]))
 else:
     print("\nZERO results for this query. Please adapt your search criteria or look into Tasking. \n")
     exit()
@@ -49,7 +49,7 @@ else:
 search_results_coordinates = Feature(geometry=Polygon(search_results["features"][1]["geometry"]["coordinates"]))
 #print("search results coordinates",search_results_coordinates,"\n")
 
-print("number of search results: ",len(search_results["features"]))
+print("number of search results: ", len(search_results["features"]))
 
 #all_search_results_aoi = FeatureCollection()
 #for x in search_results["features"]:
