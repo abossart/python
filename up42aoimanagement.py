@@ -4,6 +4,7 @@ from IPython.display import display
 from geojson import Feature, Polygon, FeatureCollection
 from ipyleaflet import Map, GeoJSON, LayersControl
 from turfpy.transformation import difference, intersect
+from shapely.geometry import mapping
 
 #Authentication & initialisation
 up42.authenticate(cfg_file="../secret/config.json")
@@ -46,6 +47,14 @@ else:
 #print(search_results["features"][0]["geometry"]["coordinates"])
 #print(search_results.iloc[0]["geometry"]) Used in case dataframe is used
 
+
+shapely_polygon = search_results_df.iloc[0]["geometry"]
+geometry_string = mapping(shapely_polygon)
+
+print(geometry_string)
+sr_coordinates = geometry_string["coordinates"]
+print(sr_coordinates)
+
 search_results_coordinates = Feature(geometry=Polygon(search_results["features"][1]["geometry"]["coordinates"]))
 #print("search results coordinates",search_results_coordinates,"\n")
 
@@ -59,7 +68,8 @@ print("number of search results: ", len(search_results["features"]))
 aoi_1 = aoi_geometry["features"][0]["geometry"]
 aoi_1_geojson = GeoJSON(name="AOI Polygon", data=aoi_1)
 
-aoi_2 = search_results_coordinates
+#aoi_2 = search_results_coordinates
+aoi_2 = sr_coordinates
 aoi_2_geojson = GeoJSON(name='Search Result Polygon', data=aoi_2, style={'color': 'green'})
 
 try:

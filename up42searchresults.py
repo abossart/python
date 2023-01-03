@@ -1,6 +1,7 @@
 import up42
 import pandas as pd
 from IPython.display import display
+from shapely.geometry import mapping
 
 #Authentication & initialisation
 up42.authenticate(cfg_file="../secret/config.json")
@@ -33,5 +34,11 @@ search_parameters = catalog.construct_search_parameters(collections=["spot"],
 
 search_results = catalog.search(search_parameters)
 print(search_results.iloc[0]["geometry"])
+
+
+shapely_polygon = search_results.iloc[0]["geometry"]
+geometry_string = mapping(shapely_polygon)
+
+print(geometry_string)
 
 #display(pd.DataFrame.from_dict(search_results))
