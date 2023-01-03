@@ -4,7 +4,7 @@ from IPython.display import display
 from geojson import Feature, Polygon, FeatureCollection
 from ipyleaflet import Map, GeoJSON, LayersControl
 from turfpy.transformation import difference, intersect
-import shapely.algorithms
+import shapely.speedups
 
 #Authentication & initialisation
 up42.authenticate(cfg_file="../secret/config.json")
